@@ -1,0 +1,15 @@
+#!/bin/bash
+case $1 in
+    hibernate)
+    ;;
+    suspend)
+        /home/pepa/TV/timerec/sleep_hook.sh
+    ;;
+    thaw)
+    ;;
+    resume)
+    ;;
+    *)
+    ;;
+esac
+
