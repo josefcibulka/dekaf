@@ -7,5 +7,5 @@ kaffeine --nofork --lastchannel
 #  /usr/bin/pgrep kaffeine
 #  KAFFRUNNING=$?
 #done
-/home/pepa/TV/timerec/update_cron.sh
+/home/pepa/TV/dekaf/update_cron.sh
 #kaffeine %U --lastchannel

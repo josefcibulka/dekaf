@@ -1,19 +1,13 @@
 #!/bin/bash
 # The time in the database is UTC.
-# We first subtract 60 seconds to get RECTIMEUTC.
-# The python script below transforms it to RECTIME in local time.
+BASEDIR=/home/pepa/TV/dekaf
 FILENAME=/home/pepa/.kde/share/apps/kaffeine/sqlite.db
+FILENAMENEXTREC=/tmp/nextrec.txt
 echo "Recording times in UTC"
-echo "select \"Begin\" \"Name\" from RecordingSchedule ORDER BY \"Begin\" asc;" | sqlite3 $FILENAME
-NEXTTIME=`echo "select \"Begin\" from RecordingSchedule ORDER BY \"Begin\" asc limit 1;"| sqlite3 $FILENAME`
-TIME=`echo $NEXTTIME | sed 's/T/ / ; s/ZZ//'`
-echo "Using $TIME"
-TIMENUM=`date "+%s" -d "$TIME"`
-RECTIMEUTC=`expr $TIMENUM - 60`
-RECTIME=$(python <<END
-import time, calendar; print calendar.timegm(time.localtime($RECTIMEUTC))
-END
-)
-#echo $TIME $TIMENUM $RECTIMEUTC $RECTIME
-echo "That is, in local time: `date "+%d.%m.%Y %H:%M:%S" -d @$RECTIME`"
+echo "select \"Begin\",\"Name\" from RecordingSchedule ORDER BY \"Begin\" asc;" | sqlite3 $FILENAME
+PLANTIMES=`echo "select \"Begin\",\"Repeat\" from RecordingSchedule ORDER BY \"Begin\" asc;"| sqlite3 $FILENAME`
+echo $PLANTIMES
+$BASEDIR/get_next_time.py $FILENAMENEXTREC $PLANTIMES
+RECTIME=`cat $FILENAMENEXTREC`
 echo $RECTIME
+echo "That is, in local time: `date "+%d.%m.%Y %H:%M:%S" -d @$RECTIME`"

@@ -1,12 +1,12 @@
 #!/bin/bash
 # Run "sudo visudo" and add at the end "username  ALL = NOPASSWD: /usr/sbin/pm-suspend"
 # Alternatively, use:   echo "password" | sudo -S pm-suspend
-BASEDIR=/home/pepa/TV/timerec
+BASEDIR=/home/pepa/TV/dekaf
 date
 whoami
-sleep 20
+sleep 2
 $BASEDIR/update_cron.sh
-sleep 10
+sleep 1
 echo "Recording has finished. TV will be shut down."
 /usr/bin/pkill kaffeine
 RC=$?

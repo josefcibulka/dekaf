@@ -1,7 +1,7 @@
 #!/bin/bash
 date
 echo "Updating cron."
-BASEDIR=/home/pepa/TV/timerec
+BASEDIR=/home/pepa/TV/dekaf
 TMPFILENAME=$BASEDIR/cron_new.txt
 ORIGCRONFILENAME=$BASEDIR/cron_orig.txt
 crontab -l > $ORIGCRONFILENAME
