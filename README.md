@@ -1,5 +1,5 @@
 # Dekaf
-Dekaf wakes up Kaffeine for scheduled recordings, so the computer does not need to stay awake all the time.
+Dekaf wakes up the computer and starts Kaffeine for scheduled recordings, so the computer does not need to stay awake all the time.
 
 <h4>Installation:</h4>
 
