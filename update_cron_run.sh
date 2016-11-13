@@ -1,18 +1,19 @@
 #!/bin/bash
+BASEDIR=/home/pepa/TV/dekaf
+source $BASEDIR/environment.sh
 date
 echo "Updating cron."
-BASEDIR=/home/pepa/TV/dekaf
-TMPFILENAME=$BASEDIR/cron_new.txt
-ORIGCRONFILENAME=$BASEDIR/cron_orig.txt
-crontab -l > $ORIGCRONFILENAME
-crontab -l | grep -v "$BASEDIR/start_tv.sh" > $TMPFILENAME
+source $BASEDIR/environment.sh
+crontab -l > $CRONORIGFILENAME
+crontab -l | grep -v "$BASEDIR/start_tv.sh" > $CRONTMPFILENAME
 source $BASEDIR/get_next_time_cron.sh
 set -f # forbid bash expansion of the asterisk
-echo $RECTIMECRON >> $TMPFILENAME
+echo $RECTIMECRON >> $CRONTMPFILENAME
 set +f
-if diff $TMPFILENAME $ORIGCRONFILENAME >/dev/null ; then 
+if diff $CRONTMPFILENAME $CRONORIGFILENAME >/dev/null ; then 
  echo "No change in crontab"
 else
   echo "New crontab is different. Updating crontab."
-  crontab $TMPFILENAME
+  crontab $CRONTMPFILENAME
 fi
+rm $CRONORIGFILENAME $CRONTMPFILENAME

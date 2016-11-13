@@ -1,6 +1,10 @@
 #!/bin/bash
+BASEDIR=/home/pepa/TV/dekaf
+source $BASEDIR/environment.sh
 date
 echo "Starting TV"
-export XAUTHORITY="/home/pepa/.Xauthority"
+echo $USERHOME
+export XAUTHORITY=$USERHOME/.Xauthority
+echo $XAUTHORITY
 export DISPLAY=":0"
-/usr/local/bin/kaffeine --lastchannel 
+$KAFFEINEEXECUTABLE --lastchannel 

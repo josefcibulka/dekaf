@@ -1,2 +1,4 @@
 #!/bin/bash
-/home/pepa/TV/dekaf/recend_run.sh >> /home/pepa/TV/dekaf/tvlog.txt 2>&1 &
+BASEDIR=/home/pepa/TV/dekaf
+source $BASEDIR/environment.sh
+$BASEDIR/recend_run.sh >> $LOGTVFILENAME 2>&1 &

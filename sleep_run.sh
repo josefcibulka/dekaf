@@ -1,8 +1,8 @@
 #!/bin/bash
 BASEDIR=/home/pepa/TV/dekaf
+source $BASEDIR/environment.sh
 date
 echo "Computer is going to sleep. We will close TV (if running) and plan the next wakeup."
-#DESIRED=$((`date +%s -d '2016-01-09 15:17:30'`))
 
 /usr/bin/pkill kaffeine
 source $BASEDIR/get_next_time_extract.sh
