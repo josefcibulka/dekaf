@@ -4,9 +4,9 @@ Dekaf wakes up the computer and starts Kaffeine for scheduled recordings, so the
 <h4>Installation:</h4>
 <ol>
 <li>Install <a href="https://www.kde.org/applications/multimedia/kaffeine/">Kaffeine</a> (e.g. "sudo apt-get install kaffeine")</li>
-<li>Install sqlite3 (sudo apt-get install sqlite3)</li>
+<li>Install sqlite3, pygtk2 and (sudo apt-get install sqlite3 python-gtk2)</li>
 <li>Download Dekaf.</li>
-<li>Replace the paths in all the Dekaf's scripts with the installation path.</li>
+<li>Run INSTALL.sh and follow the instructions. This script replaces the paths in all the Dekaf's scripts by the installation path.</li>
 <li>In Kaffeine TV settings: command after recording finishes: (Installation path)/recend.sh</li>
 <li>
 <ol>
