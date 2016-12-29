@@ -16,3 +16,4 @@ else
   echo "New crontab is different. Updating crontab."
   crontab $TMPFILENAME
 fi
+rm $ORIGCRONFILENAME $TMPFILENAME

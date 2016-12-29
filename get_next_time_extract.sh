@@ -9,5 +9,6 @@ PLANTIMES=`echo "select \"Begin\",\"Repeat\" from RecordingSchedule ORDER BY \"B
 echo $PLANTIMES
 $BASEDIR/get_next_time.py $FILENAMENEXTREC $PLANTIMES
 RECTIME=`cat $FILENAMENEXTREC`
+rm $FILENAMENEXTREC
 echo $RECTIME
 echo "That is, in local time: `date "+%d.%m.%Y %H:%M:%S" -d @$RECTIME`"
