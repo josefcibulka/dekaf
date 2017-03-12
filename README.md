@@ -13,7 +13,7 @@ Dekaf wakes up the computer and starts Kaffeine for scheduled recordings, so the
 <li>"sudo visudo" and add at the end "(Username) ALL = NOPASSWD: /usr/sbin/pm-suspend" (Replace (Username) with the name of the user that is running Kaffeine)</li>
 <li>or see recend_run.sh for other options </li>
 </ol>
-<li>Copy 66_dekaf to /etc/pm/sleep.d/</li>
+<li>Copy 66_dekaf to /lib/systemd/system-sleep/ <b>NOTE:</b> In Mint <= 17.3 (probably also in Ubuntu before 16.4), copy 66_dekaf-old-pm to /etc/pm/sleep.d/</li>
 <li>Always use the tv_desktop_link.sh script to start Kaffeine</li>
 <li>Make sure that the time in BIOS is in UTC. This is especially needed when dual-booting with Windows older than Windows 7 (see https://wiki.archlinux.org/index.php/Time#UTC_in_Windows)</li>
 <li>Apply <a href=https://sourceforge.net/p/kaffeine/mailman/message/31673147/>the patch from here</a> to ensure that repeated recordings start at correct time even after changes to and from the daylight saving time. Dekaf worked well so far when changes to and from daylight saving time occurred, but no thorough testing was done.
