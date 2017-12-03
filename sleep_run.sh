@@ -7,6 +7,8 @@ echo "Computer is going to sleep. We will close TV (if running) and plan the nex
 /usr/bin/pkill kaffeine
 source $BASEDIR/get_next_time_extract.sh
 
+$BASEDIR/update_cron.sh
+
 # Wake up 60 seconds before the planned recording.
 NEXTWAKETIME=`expr $RECTIME - 60`
 

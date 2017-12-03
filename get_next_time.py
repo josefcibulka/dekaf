@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Finds the next recording time at least 120 seconds in the future.
+# Finds the next recording time at least 90 second in the future.
 import sys, time, calendar, os, datetime
 from subprocess import call
 
@@ -44,7 +44,7 @@ for i in range(2, len(sys.argv)):
     futureTimeLocal = addDays(timeStructLocal, i)
     dow = getDow(futureTimeLocal)
     nextRecTimeCur = int(time.mktime(futureTimeLocal))
-    if (i==0 or days[dow]) and nextRecTimeCur > curTime + 120: 
+    if (i==0 or days[dow]) and nextRecTimeCur >= curTime + 90:
       if nextRecTime<0 or nextRecTimeCur < nextRecTime:
         nextRecTime = nextRecTimeCur
       print "Next recording local time for this show is ", time.strftime("%Y-%m-%d %H:%M:%S", futureTimeLocal), ", which is ", i, " days after the day in the database."

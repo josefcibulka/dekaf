@@ -1,4 +1,5 @@
 #!/bin/bash
 BASEDIR=/home/pepa/TV/dekaf
 source $BASEDIR/environment.sh
-/home/pepa/TV/dekaf/update_cron_run.sh >> /home/pepa/TV/dekaf/cronupdatelog.txt 2>&1 &
+# Make sure to run as the user (KAFFEINEUSER), not root.
+sudo -u $KAFFEINEUSER $BASEDIR/update_cron_run.sh >> $LOGCRONFILENAME 2>&1 &

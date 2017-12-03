@@ -2,7 +2,7 @@
 BASEDIR=/home/pepa/TV/dekaf
 source $BASEDIR/environment.sh
 date
-echo "Starting TV"
+echo "Starting TV as" $USERNAME
 echo $USERHOME
 export XAUTHORITY=$USERHOME/.Xauthority
 echo $XAUTHORITY
